@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>넥스트 리더스 | 청년 인재양성 플랫폼</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Gmarket+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1c1c1e;
+    --deep: #2a2a2d;
+    --gold: #b5977a;
+    --gold-light: #d4b99a;
+    --cream: #f0ebe3;
+    --warm-white: #faf8f5;
+    --text-dark: #1c1c1e;
+    --text-mid: #5c5c62;
+    --text-light: #9a9aa0;
+    --accent: #7c9e8f;
+    --sage: #7c9e8f;
+    --sage-light: #a8c4b8;
+    --sage-pale: #eef3f1;
+    --terracotta: #b8745a;
+    --stone: #8c8680;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Gmarket Sans', 'Noto Sans KR', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(28,28,30,0.96);
+    backdrop-filter: blur(16px);
+    padding: 16px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(181,151,122,0.15);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy) !important;
+    padding: 8px 20px; border-radius: 4px; font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(155deg, #111110 0%, #1e1d1b 45%, #252320 100%);
+    position: relative;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(181,151,122,0.1) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: 25%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(124,158,143,0.07) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+  .hero-content { max-width: 640px; position: relative; z-index: 2; }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid rgba(181,151,122,0.45);
+    color: var(--gold);
+    font-size: 0.72rem; font-weight: 600;
+    padding: 5px 14px; border-radius: 20px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 span { color: var(--gold); }
+  .hero-sub {
+    font-size: 1.05rem; color: rgba(255,255,255,0.62);
+    line-height: 2; margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 0.015em;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-btns {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+    padding: 14px 32px; border-radius: 6px;
+    font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; transition: all 0.25s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181,151,122,0.3); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.35); color: rgba(255,255,255,0.85);
+    padding: 14px 32px; border-radius: 6px;
+    font-size: 0.95rem; text-decoration: none; transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .hero-stats {
+    position: absolute; right: 48px; bottom: 80px;
+    display: flex; gap: 40px; z-index: 2;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem; font-weight: 600; color: var(--gold);
+    display: block; letter-spacing: -0.02em;
+  }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.05em; margin-top: 4px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION BASE */
+  section { padding: 96px 48px; }
+  .section-label {
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    font-weight: 600; color: var(--navy);
+    line-height: 1.35; margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .section-desc {
+    font-size: 1rem; color: var(--text-mid);
+    line-height: 1.9; max-width: 560px; font-weight: 300;
+  }
+
+  /* WHY SECTION */
+  .why-section { background: var(--cream); }
+  .why-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 64px; align-items: start; margin-top: 64px;
+  }
+  .why-cards { display: flex; flex-direction: column; gap: 20px; }
+  .why-card {
+    background: #fff;
+    border: 1px solid rgba(181,151,122,0.12);
+    border-radius: 10px; padding: 28px 32px;
+    display: flex; gap: 20px; align-items: flex-start;
+    transition: all 0.3s; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .why-card:hover { transform: translateX(6px); box-shadow: 0 6px 24px rgba(124,158,143,0.12); border-color: var(--sage); }
+  .why-icon {
+    width: 44px; height: 44px; min-width: 44px;
+    background: linear-gradient(135deg, #2a2a2d, #3d3d42);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+  }
+  .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .why-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+  .why-visual {
+    background: linear-gradient(145deg, #1a1a1c 0%, #242422 60%, #1e2220 100%);
+    border-radius: 16px; padding: 48px 40px;
+    color: #fff; position: sticky; top: 100px;
+    border: 1px solid rgba(181,151,122,0.08);
+  }
+  .why-visual h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 600; margin-bottom: 28px; color: #fff;
+    line-height: 1.5; letter-spacing: -0.01em;
+  }
+  .why-visual h3 span { color: var(--gold); }
+  .why-stat-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .why-stat-list li {
+    padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .why-stat-list li:last-child { border-bottom: none; padding-bottom: 0; }
+  .wsl-num { font-family: 'Cormorant Garamond', serif; font-size: 2.3rem; font-weight: 600; color: var(--gold); letter-spacing: -0.02em; }
+  .wsl-text { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-top: 4px; line-height: 1.6; }
+
+  /* PROGRAMS */
+  .programs-section { background: var(--warm-white); }
+  .programs-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .programs-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .prog-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px; overflow: hidden;
+    background: #fff; transition: all 0.3s;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  }
+  .prog-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); border-color: var(--sage-light); }
+  .prog-top {
+    padding: 32px 28px 28px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .prog-tag {
+    display: inline-block;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 12px; margin-bottom: 16px;
+  }
+  .tag-career { background: rgba(28,28,30,0.07); color: #3a3a3e; }
+  .tag-read { background: rgba(181,151,122,0.14); color: #7a5a3a; }
+  .tag-mentor { background: rgba(124,158,143,0.14); color: #3a6858; }
+  .tag-life { background: rgba(184,116,90,0.12); color: #824538; }
+  .tag-comm { background: rgba(140,134,128,0.14); color: #4a4440; }
+  .tag-finance { background: rgba(90,120,150,0.12); color: #2a5070; }
+  .prog-icon { font-size: 2rem; margin-bottom: 12px; }
+  .prog-top h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.01em; }
+  .prog-top p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.7; }
+  .prog-bottom { padding: 20px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .prog-detail { font-size: 0.8rem; color: var(--text-light); }
+  .prog-link { font-size: 0.8rem; font-weight: 700; color: var(--gold); text-decoration: none; }
+  .prog-link:hover { text-decoration: underline; }
+  .prog-card.featured {
+    background: linear-gradient(150deg, #1a1a1c 0%, #232320 100%);
+    border-color: rgba(181,151,122,0.15);
+    grid-column: span 1;
+  }
+  .prog-card.featured .prog-top { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .prog-card.featured h3 { color: #fff; }
+  .prog-card.featured p { color: rgba(255,255,255,0.58); }
+  .prog-card.featured .prog-tag.tag-career { background: rgba(181,151,122,0.18); color: var(--gold); }
+  .prog-card.featured .prog-detail { color: rgba(255,255,255,0.35); }
+  .prog-card.featured .prog-link { color: var(--gold-light); }
+
+  /* SUCCESS */
+  .success-section { background: #141413; }
+  .success-section .section-title { color: #f0ece6; }
+  .success-section .section-label { color: var(--gold); }
+  .success-section .section-desc { color: rgba(240,236,230,0.5); }
+  .success-section .section-header { margin-bottom: 56px; }
+  .success-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .success-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 36px 32px;
+    transition: all 0.3s;
+  }
+  .success-card:hover { background: rgba(255,255,255,0.055); border-color: rgba(181,151,122,0.25); transform: translateY(-4px); }
+  .sc-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; color: var(--gold);
+    line-height: 0.5; margin-bottom: 20px; opacity: 0.5;
+    font-style: italic;
+  }
+  .sc-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.9; margin-bottom: 28px; font-style: italic; font-weight: 400; }
+  .sc-divider { height: 1px; background: rgba(255,255,255,0.08); margin-bottom: 20px; }
+  .sc-profile { display: flex; gap: 16px; align-items: center; }
+  .sc-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--terracotta) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; font-weight: 700; color: #fff;
+    font-family: 'Cormorant Garamond', serif; min-width: 48px;
+  }
+  .sc-name { font-family: 'Gmarket Sans', sans-serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+  .sc-career { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.5; }
+  .sc-badge {
+    display: inline-block; margin-top: 4px;
+    font-size: 0.68rem; padding: 2px 8px; border-radius: 10px;
+    background: rgba(181,151,122,0.18); color: var(--gold);
+    font-weight: 600; letter-spacing: 0.05em;
+  }
+
+  .warning-section {
+    background: #f7f4f0;
+    border-top: 3px solid #a05040;
+  }
+  .warning-inner {
+    max-width: 860px; margin: 0 auto;
+    border: 1px solid rgba(160,80,64,0.15);
+    border-radius: 12px; padding: 48px 56px;
+    background: #fff;
+    position: relative; overflow: hidden;
+  }
+  .warning-inner::before {
+    content: '⚠';
+    position: absolute; right: 40px; top: 32px;
+    font-size: 4rem; opacity: 0.05; color: #a05040;
+  }
+  .warning-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(160,80,64,0.07); color: #a05040;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .warning-inner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700; color: #8a3828;
+    margin-bottom: 16px; letter-spacing: -0.01em;
+  }
+  .warning-inner p {
+    font-size: 0.9rem; color: #5c4038;
+    line-height: 1.9; margin-bottom: 12px;
+  }
+  .warning-list { list-style: none; margin: 16px 0; display: flex; flex-direction: column; gap: 10px; }
+  .warning-list li {
+    font-size: 0.88rem; color: #5c4038;
+    padding: 10px 16px; background: rgba(160,80,64,0.04);
+    border-left: 3px solid #a05040; border-radius: 0 6px 6px 0;
+    line-height: 1.6;
+  }
+  .warning-contact {
+    margin-top: 20px; padding: 14px 20px;
+    background: rgba(160,80,64,0.05); border-radius: 8px;
+    font-size: 0.85rem; color: #6a4438; font-weight: 500;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(145deg, #111110 0%, #1a1918 50%, #111110 100%);
+    text-align: center; padding: 100px 48px;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(124,158,143,0.08) 0%, transparent 55%);
+    border-radius: 50%;
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(181,151,122,0.07) 0%, transparent 55%);
+    border-radius: 50%;
+  }
+  .cta-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    color: #fff; font-weight: 600;
+    line-height: 1.35; margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .cta-section h2 span { color: var(--gold); }
+  .cta-section p { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 40px; line-height: 1.8; position: relative; }
+  .cta-section .btn-primary { font-size: 1rem; padding: 16px 40px; position: relative; }
+
+  /* FOOTER */
+  footer {
+    background: #0a0a09;
+    padding: 48px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.82rem;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    border-top: 1px solid rgba(181,151,122,0.08);
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @media (max-width: 900px) {
+    nav { padding: 14px 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    .hero { padding: 100px 24px 80px; }
+    .hero-stats { position: static; margin-top: 48px; justify-content: flex-start; }
+    .why-grid { grid-template-columns: 1fr; }
+    .why-visual { position: static; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .success-grid { grid-template-columns: 1fr; }
+    .programs-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .warning-inner { padding: 32px 28px; }
+    footer { flex-direction: column; padding: 36px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">NEXT LEADERS</div>
+  <div class="nav-links">
+    <a href="#why">왜 지금인가</a>
+    <a href="#programs">프로그램</a>
+    <a href="#success">성공 사례</a>
+    <a href="#warning">주의사항</a>
+    <a href="#cta" class="nav-cta">무료 상담 신청</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-badge">청년 인재양성 플랫폼</span>
+    <h1>당신의 <span>잠재력</span>이<br>커리어가 되는 곳</h1>
+    <p class="hero-sub">20·30대 청년들이 자신만의 방향을 찾고,<br>
+    실력과 깊이를 갖춘 진짜 인재로 성장할 수 있도록<br>
+    넥스트 리더스가 함께합니다.</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">프로그램 둘러보기</a>
+      <a href="#why" class="btn-outline">왜 인재양성인가 →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">1,200+</span>
+      <span class="stat-label">누적 수료생</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">87%</span>
+      <span class="stat-label">취업·이직 성공률</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">6년</span>
+      <span class="stat-label">누적 운영 경험</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section" id="why">
+  <div class="section-label">왜 지금인가</div>
+  <div class="section-title">20·30대 청년에게<br>인재양성이 필요한 이유</div>
+  <div class="why-grid">
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-icon">🧭</div>
+        <div>
+          <h3>방향 없이 바쁜 시대</h3>
+          <p>정보는 넘쳐나지만 정작 "나는 무엇을 원하는가"라는 질문에 막히는 청년들이 많습니다. 명확한 방향 설정 없이는 노력도 표류합니다.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📉</div>
+        <div>
+          <h3>스펙보다 역량이 중요한 채용 환경</h3>
+          <p>이제 기업은 학벌·자격증보다 자기주도성, 문제해결력, 커뮤니케이션 역량을 봅니다. 진짜 실력을 키워야 할 때입니다.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📚</div>
+        <div>
+          <h3>독서·사고력 격차의 현실</h3>
+          <p>디지털 콘텐츠 소비가 늘어나는 반면, 깊이 있는 독서와 사고력은 줄어들고 있습니다. 이 격차가 곧 역량의 격차로 이어집니다.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌱</div>
+        <div>
+          <h3>자기계발의 골든타임</h3>
+          <p>20·30대는 가소성이 높고 습관 형성이 가장 효과적인 시기입니다. 지금 어떤 기반을 쌓느냐가 이후 10년을 결정합니다.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div>
+          <h3>혼자선 어려운 성장</h3>
+          <p>적절한 피드백과 커뮤니티 없이 홀로 성장하는 것은 효율이 낮습니다. 좋은 멘토와 동료가 있는 환경이 성장 속도를 3배 이상 높입니다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <h3>지금 대한민국<br>청년들의 현실은<br><span>어떤가요?</span></h3>
+      <ul class="why-stat-list">
+        <li>
+          <div class="wsl-num">42%</div>
+          <div class="wsl-text">대졸 청년 중 자신의 직무 역량에 "만족하지 못한다"고 응답 (2024 청년 일자리 실태조사)</div>
+        </li>
+        <li>
+          <div class="wsl-num">68%</div>
+          <div class="wsl-text">취업 후 1년 내 "방향 재설정이 필요하다"고 느끼는 비율</div>
+        </li>
+        <li>
+          <div class="wsl-num">1권</div>
+          <div class="wsl-text">20대의 월평균 독서량 — OECD 최하위권 수준</div>
+        </li>
+        <li>
+          <div class="wsl-num">3.2배</div>
+          <div class="wsl-text">코칭·멘토링 경험자의 목표 달성률이 그렇지 않은 경우 대비 높은 수치</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section" id="programs">
+  <div class="programs-header">
+    <div>
+      <div class="section-label">프로그램</div>
+      <div class="section-title">나에게 맞는<br>성장 경로를 찾아보세요</div>
+    </div>
+    <div class="section-desc" style="max-width:320px;">6가지 핵심 프로그램으로<br>커리어부터 내면 성장까지 설계합니다.</div>
+  </div>
+  <div class="programs-grid">
+    <div class="prog-card featured">
+      <div class="prog-top">
+        <span class="prog-tag tag-career">FLAGSHIP</span>
+        <div class="prog-icon">🎯</div>
+        <h3>취업 & 커리어 컨설팅</h3>
+        <p>1:1 심층 분석을 통해 직무 적합성을 진단하고 맞춤형 취업 전략을 수립합니다. 이력서, 자기소개서, 면접까지 전 과정을 밀착 코칭합니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">주 1회 1:1 · 8주 과정</span>
+        <a href="#cta" class="prog-link">신청하기 →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-tag tag-read">독서 지도</span>
+        <div class="prog-icon">📖</div>
+        <h3>독서 코칭 & 사고력 훈련</h3>
+        <p>단순히 많이 읽는 것이 아닌, 비판적 사고와 적용력을 기르는 독서 방법론을 훈련합니다. 읽은 것이 삶으로 연결됩니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">소그룹 4인 · 12주 과정</span>
+        <a href="#cta" class="prog-link">자세히 보기 →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-tag tag-mentor">멘토링</span>
+        <div class="prog-icon">🌟</div>
+        <h3>현직자 멘토 매칭</h3>
+        <p>각 분야 5년 이상 현직자와 1:1로 연결됩니다. 현실적인 커리어 이야기와 실무 인사이트를 직접 나눌 수 있습니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">월 2회 · 상시 신청</span>
+        <a href="#cta" class="prog-link">자세히 보기 →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-tag tag-life">라이프 디자인</span>
+        <div class="prog-icon">🗺️</div>
+        <h3>인생 설계 워크숍</h3>
+        <p>가치관 탐색, 목표 수립, 시간 관리까지 — 10년 후 내가 원하는 삶을 구체적으로 설계합니다. 그룹 워크숍과 개인 플래닝을 결합합니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">그룹 6인 · 4주 집중</span>
+        <a href="#cta" class="prog-link">자세히 보기 →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-tag tag-comm">커뮤니케이션</span>
+        <div class="prog-icon">💬</div>
+        <h3>말하기 & 글쓰기 강화</h3>
+        <p>발표, 협상, 보고 등 직장에서 필요한 커뮤니케이션 역량을 실전 훈련으로 키웁니다. 브랜딩 글쓰기도 함께 다룹니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">소그룹 5인 · 6주 과정</span>
+        <a href="#cta" class="prog-link">자세히 보기 →</a>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-top">
+        <span class="prog-tag tag-finance">금융 리터러시</span>
+        <div class="prog-icon">💡</div>
+        <h3>청년 재무 설계 기초</h3>
+        <p>투자·저축·부채 관리까지, 사회초년생이 꼭 알아야 할 돈의 기초를 실용적으로 배웁니다. 재무 목표 설정을 함께 합니다.</p>
+      </div>
+      <div class="prog-bottom">
+        <span class="prog-detail">온라인 8강 · 자유 수강</span>
+        <a href="#cta" class="prog-link">자세히 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUCCESS -->
+<section class="success-section" id="success">
+  <div class="section-header">
+    <div class="section-label">성공 사례</div>
+    <div class="section-title">넥스트 리더스 출신들의 이야기</div>
+    <div class="section-desc">프로그램을 통해 실제로 변화를 만들어낸 청년들을 소개합니다.</div>
+  </div>
+  <div class="success-grid">
+    <div class="success-card">
+      <div class="sc-quote">"</div>
+      <p class="sc-text">취준 3년째에 이 프로그램을 만났어요. 제가 뭘 원하는지조차 몰랐는데, 컨설팅을 통해 직무를 완전히 바꾸고 결국 원하는 회사에 합격했습니다.</p>
+      <div class="sc-divider"></div>
+      <div class="sc-profile">
+        <div class="sc-avatar">김</div>
+        <div>
+          <div class="sc-name">김지수 (29)</div>
+          <div class="sc-career">前 무방향 취준생 → 現 IT기업 UX 기획자<br>2023년 3월 수료</div>
+          <span class="sc-badge">취업 컨설팅 수료</span>
+        </div>
+      </div>
+    </div>
+    <div class="success-card">
+      <div class="sc-quote">"</div>
+      <p class="sc-text">독서 코칭을 받기 전까지는 책을 읽어도 남는 게 없었어요. 지금은 한 권을 읽으면 업무와 삶에 바로 적용할 아이디어가 3가지 이상 나옵니다.</p>
+      <div class="sc-divider"></div>
+      <div class="sc-profile">
+        <div class="sc-avatar">박</div>
+        <div>
+          <div class="sc-name">박민호 (32)</div>
+          <div class="sc-career">前 영업직 2년 → 現 스타트업 사업개발 팀장<br>2022년 7월 수료</div>
+          <span class="sc-badge">독서 코칭 + 멘토링 수료</span>
+        </div>
+      </div>
+    </div>
+    <div class="success-card">
+      <div class="sc-quote">"</div>
+      <p class="sc-text">인생 설계 워크숍이 가장 인상적이었어요. 20대에 이 질문들을 스스로에게 해보는 시간이 없었는데, 지금은 방향이 너무 선명합니다.</p>
+      <div class="sc-divider"></div>
+      <div class="sc-profile">
+        <div class="sc-avatar">이</div>
+        <div>
+          <div class="sc-name">이서연 (27)</div>
+          <div class="sc-career">前 진로 미결정 → 現 공공기관 복지 기획직<br>2024년 1월 수료</div>
+          <span class="sc-badge">라이프 디자인 수료</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARNING -->
+<section class="warning-section" id="warning">
+  <div class="warning-inner">
+    <div class="warning-tag">⚠️ 중요 공지</div>
+    <h2>유사 단체 및 무단 도용에 관한 경고</h2>
+    <p>최근 넥스트 리더스의 이름, 프로그램 내용, 로고를 무단으로 도용하거나 유사하게 사칭하는 개인 및 단체가 발견되고 있습니다. 참여를 결정하기 전에 반드시 아래 사항을 확인해 주세요.</p>
+    <ul class="warning-list">
+      <li>🚫 <strong>종교적 신념 강요 없음</strong> — 넥스트 리더스는 어떠한 종교 단체와도 관련이 없으며, 특정 신앙이나 사상을 강요하지 않습니다. 상담 과정에서 종교적 내용이 제시된다면 즉시 중단하세요.</li>
+      <li>🚫 <strong>과도한 금전 요구 없음</strong> — 공식 프로그램 외 별도 입회금, 교재비, 기부금 등을 요구하는 경우는 공식 프로그램이 아닙니다.</li>
+      <li>🚫 <strong>개인정보 과도 수집 없음</strong> — 공식 채널 이외의 경로로 접근하여 개인 신상, 가족관계, 재산 등 민감한 정보를 요구하는 경우 응하지 마세요.</li>
+      <li>🚫 <strong>공식 채널 확인 필수</strong> — 본 사이트(nextleaders.kr)와 공식 SNS 외의 경로로 진행되는 모임은 공식 프로그램이 아닐 수 있습니다. 반드시 공식 채널을 통해 확인하세요.</li>
+    </ul>
+    <div class="warning-contact">
+      📧 의심 사례 신고 및 공식 여부 확인: <strong>verify@nextleaders.kr</strong> | 📞 고객센터: 02-0000-0000 (평일 10:00–18:00)
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <h2>오늘, 당신의 <span>첫 번째 걸음</span>을<br>함께 내딛겠습니다</h2>
+  <p>무료 상담 신청 후 전담 컨설턴트가 3영업일 내 연락드립니다.<br>방향이 불명확해도 괜찮습니다 — 그게 시작입니다.</p>
+  <a href="mailto:apply@nextleaders.kr" class="btn-primary">무료 상담 신청하기 →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">NEXT LEADERS</div>
+    <div style="margin-top:8px;">© 2025 넥스트 리더스. All rights reserved.</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">개인정보처리방침</a>
+    <a href="#">이용약관</a>
+    <a href="#">공식 채널 확인</a>
+    <a href="#">문의하기</a>
+  </div>
+</footer>
+
+</body>
+</html>
